@@ -1,15 +1,15 @@
-# Codebase Summary
+# Resumen del Codebase
 
-**Project**: Luxora Ops Dashboard  
+**Proyecto**: Luxora Ops Dashboard  
 **Framework**: Angular 20  
-**Language**: TypeScript  
-**Last Updated**: 2026-03-13
+**Lenguaje**: TypeScript  
+**Ultima actualizacion**: 2026-03-13
 
-## Overview
+## Vision general
 
-This codebase is a single-page Angular dashboard application organized by feature areas. It uses standalone components, Angular signals, and a local JSON seed file to simulate database-backed records.
+El proyecto es una SPA en Angular organizada por modulos funcionales. Usa componentes standalone, señales de Angular y un archivo JSON local como fuente inicial de datos.
 
-## High-Level Structure
+## Estructura principal
 
 ```text
 src/
@@ -26,65 +26,63 @@ src/
 └── styles.scss
 ```
 
-## Important Areas
+## Zonas importantes
 
 ### `src/app/core`
 
-Cross-feature services and application state.
+Servicios globales y estado central.
 
 - `database.service.ts`
-  - Loads seed data from `assets/data/db.json`
-  - Stores runtime data in `localStorage`
-  - Handles low-level CRUD and relationship updates
+  - Carga el seed desde `db.json`
+  - Guarda cambios en `localStorage`
+  - Mantiene integridad entre relaciones
 
 - `project-ops.service.ts`
-  - Exposes computed metrics
-  - Wraps CRUD operations for UI consumption
-  - Acts as the central façade for the app
+  - Expone colecciones y metricas
+  - Centraliza el acceso CRUD para la UI
 
 ### `src/app/features`
 
-Feature-based pages and UI logic.
+Vistas por funcionalidad.
 
 - `metrics/`
-  - Main dashboard
-  - KPI cards, summaries, and unified CRUD workspace
+  - Dashboard principal
+  - KPIs, actividad y editor global
 
 - `projects/`
-  - Projects board
-  - Project form modal
-  - Project detail panel
+  - Tablero de proyectos
+  - Modal de proyecto
+  - Panel de detalle
 
 - `tasks/`
-  - Tasks table
-  - Task form modal
-  - Task detail panel
+  - Tabla de tareas
+  - Modal de tarea
+  - Panel de detalle
 
 - `team/`
-  - Team grid
-  - Team detail panel
-  - Member creation/edit modal inside page
+  - Vista del equipo
+  - Panel de detalle
+  - Modal de miembro integrado en la pagina
 
 ### `src/app/shared`
 
-Reusable UI, layout, and shared models.
+Elementos compartidos.
 
-- Layout shell
-- Header and sidebar
-- Shared status definitions
+- Shell principal
+- Header y sidebar
+- Modelos compartidos
+- Componentes reutilizables
 
-## Routing
-
-Defined in `src/app/app.routes.ts`.
+## Rutas
 
 - `/metrics`
 - `/projects`
 - `/tasks`
 - `/team`
 
-Default route redirects to `/metrics`.
+La ruta por defecto redirige a `/metrics`.
 
-## Data Flow
+## Flujo de datos
 
 ```text
 db.json
@@ -93,36 +91,35 @@ DatabaseService
   ↓
 ProjectOpsService
   ↓
-Feature pages and forms
+Paginas y formularios
   ↓
-localStorage persistence
+localStorage
 ```
 
-## Current Persistence Model
+## Persistencia
 
-- First load reads from `db.json`
-- Subsequent edits live in `localStorage`
-- Reset reloads the original seed
-- Export returns the current runtime snapshot
+- Primera carga desde `db.json`
+- Edicion y borrado en `localStorage`
+- Reset desde el JSON base
+- Exportacion del estado actual
 
-## Strengths
+## Puntos fuertes
 
-- Easy to understand architecture
-- No backend dependency
-- Good for demos and education
-- Centralized data logic
-- Clean separation between feature pages
+- Arquitectura facil de seguir
+- Sin dependencia de backend
+- Buen punto de partida para demos y aprendizaje
+- Lógica de datos centralizada
+- UI principal moderna y clara
 
-## Main Technical Risks
+## Riesgos tecnicos actuales
 
-- Large inline templates in some pages
-- No automated tests for CRUD flows yet
-- Browser-only persistence may confuse new contributors
-- Some route pages still use simpler layouts than the main dashboard
+- Algunas paginas tienen templates grandes
+- Faltan tests de integracion para CRUD
+- La persistencia solo en navegador puede confundir si no se documenta
 
-## Recommended Next Steps
+## Siguientes pasos recomendados
 
-- Add route-level integration tests
-- Extract large inline templates/styles into separate files
-- Add toast notifications
-- Add backend-ready data adapter abstraction
+- Añadir tests de flujos CRUD
+- Extraer templates y estilos grandes
+- Añadir sistema de notificaciones
+- Preparar adaptador para futura API

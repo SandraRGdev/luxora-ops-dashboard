@@ -1,76 +1,71 @@
-# Code Standards
+# Estándares de Código
 
-**Project**: Luxora Ops Dashboard  
-**Applies To**: All source files  
-**Last Updated**: 2026-03-13
+**Proyecto**: Luxora Ops Dashboard  
+**Aplicacion**: Todo el codigo fuente  
+**Ultima actualizacion**: 2026-03-13
 
-## Core Principles
+## Principios base
 
-- Keep solutions simple
-- Prefer clarity over cleverness
-- Reuse shared services instead of duplicating data logic
-- Avoid dead buttons and incomplete interactions
+- Mantener soluciones simples
+- Priorizar claridad sobre ingenio
+- Reutilizar servicios compartidos
+- No dejar botones o flujos a medias
 
-## Angular Conventions
+## Convenciones Angular
 
-### Components
+### Componentes
 
-- Use standalone components
-- Keep feature pages under `src/app/features`
-- Keep shared layout and reusable UI under `src/app/shared`
-- Prefer explicit handler methods for button actions
+- Usar componentes standalone
+- Mantener features dentro de `src/app/features`
+- Mantener layout y elementos compartidos dentro de `src/app/shared`
+- Preferir handlers explicitos para botones
 
-### State
+### Estado
 
-- Use Angular signals for local and derived state
-- Centralize app data through `ProjectOpsService`
-- Avoid bypassing the data layer from feature pages
+- Usar Angular Signals para estado local y derivado
+- Centralizar datos en `ProjectOpsService`
+- No saltarse la capa de servicios desde la UI
 
-### Services
+### Servicios
 
-- Use `DatabaseService` for low-level persistence
-- Use `ProjectOpsService` for UI-facing CRUD and metrics
-- Preserve relationship integrity between projects, tasks, and members
+- `DatabaseService` para persistencia y relaciones
+- `ProjectOpsService` para CRUD y metricas consumidas por la interfaz
+- Mantener consistencia entre proyectos, tareas y miembros
 
-## Naming
+## Nombres
 
-- Files: kebab-case
-- Classes: PascalCase
-- Variables and methods: camelCase
-- Constants: UPPER_SNAKE_CASE when appropriate
+- Archivos: kebab-case
+- Clases: PascalCase
+- Variables y metodos: camelCase
+- Constantes: UPPER_SNAKE_CASE cuando aplique
 
-## UI Standards
+## Estándares de UI
 
-- Primary actions should use the shared accent styling
-- Use real forms and modals instead of `prompt`
-- Reserve `confirm` only for destructive actions until toast/dialog system exists
-- Buttons in clickable cards or rows must use `type="button"` and stop propagation when needed
+- Las acciones principales deben compartir la misma linea visual
+- Usar formularios y modales reales en lugar de `prompt`
+- Limitar `confirm` a acciones destructivas mientras no exista un dialog system
+- Los botones dentro de tarjetas o filas clicables deben usar `type="button"` y cortar propagacion si hace falta
 
-## Documentation Standards
+## Documentacion
 
-When updating the project:
+Cada cambio relevante debe mantener actualizados:
 
-- Keep `README.md` aligned with the real product
-- Update docs in `docs/` when architecture or setup changes
-- Document any persistence behavior that may confuse contributors
+- `README.md`
+- `docs/project-overview-pdr.md`
+- `docs/codebase-summary.md`
+- `docs/system-architecture.md`
+- `docs/code-standards.md`
 
-## Testing Standards
+## Calidad minima
 
-Minimum expectation for future contributions:
+Antes de publicar cambios:
 
-- TypeScript compile must pass
-- Angular template compilation must pass
-- New CRUD behavior should include tests when test infrastructure is expanded
+- Debe pasar TypeScript
+- Debe pasar compilacion de templates Angular
+- La app debe seguir arrancando con `npm install` y `npm start`
 
-## File Size Guidance
+## Guias de mantenimiento
 
-- Prefer small focused components
-- If a file becomes hard to scan, extract template, styles, or helpers
-- Prioritize maintainability over strict file size purity
-
-## Contribution Rules
-
-- Do not introduce breaking UI behavior without updating docs
-- Do not add placeholder buttons that do nothing
-- Do not bypass relationship updates when editing linked entities
-- Keep the app runnable with `npm install` and `npm start`
+- Si un archivo se vuelve dificil de leer, dividir template, estilos o helpers
+- No duplicar logica CRUD en varias paginas
+- No subir archivos de herramientas internas que no formen parte del producto

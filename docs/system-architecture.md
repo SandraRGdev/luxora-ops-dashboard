@@ -1,158 +1,130 @@
-# System Architecture
+# Arquitectura del Sistema
 
-**Project**: Luxora Ops Dashboard  
-**Architecture Style**: Frontend-only SPA with local persistence  
-**Last Updated**: 2026-03-13
+**Proyecto**: Luxora Ops Dashboard  
+**Estilo**: SPA frontend con persistencia local  
+**Ultima actualizacion**: 2026-03-13
 
-## Overview
+## Vista general
 
-The application is built as an Angular single-page application with a feature-oriented structure. It does not require a backend. Instead, it uses a local JSON file as seed data and `localStorage` as the mutable runtime store.
+La aplicacion esta construida como una SPA en Angular. No depende de backend para funcionar. Usa un archivo JSON como seed y `localStorage` como almacenamiento mutable durante el uso.
 
-## Architecture Diagram
+## Diagrama general
 
 ```text
-Angular Routes
+Rutas Angular
   ↓
-Shell Layout
+Shell de layout
   ↓
-Feature Pages
+Paginas por feature
   ↓
 ProjectOpsService
   ↓
 DatabaseService
   ↓
-db.json seed + localStorage
+db.json + localStorage
 ```
 
-## Main Layers
+## Capas
 
-### 1. Presentation Layer
+### 1. Capa de presentacion
 
-Responsible for rendering pages and handling user interactions.
+Responsable de renderizar la UI y capturar interacciones.
 
-Key parts:
+Elementos principales:
 
 - `ShellComponent`
 - `HeaderComponent`
 - `SidebarComponent`
-- Feature pages in `projects`, `tasks`, `team`, and `metrics`
+- Paginas en `metrics`, `projects`, `tasks` y `team`
 
-Responsibilities:
+Responsabilidades:
 
-- Render the dashboard and route views
-- Open and close modals
-- Trigger CRUD actions
-- Show metrics and detail panels
+- Mostrar vistas y layout general
+- Abrir y cerrar modales
+- Disparar acciones CRUD
+- Renderizar paneles de detalle y metricas
 
-### 2. Application Layer
+### 2. Capa de aplicacion
 
-Responsible for orchestration and derived state.
+Responsable de coordinar estado derivado y operaciones de UI.
 
-Key part:
+Servicio principal:
 
 - `ProjectOpsService`
 
-Responsibilities:
+Responsabilidades:
 
-- Expose collections as signals
-- Compute KPI values
-- Coordinate CRUD calls
-- Provide helper queries such as tasks by project or assignee
+- Exponer señales para colecciones
+- Calcular metricas y resúmenes
+- Encapsular CRUD consumido por las paginas
+- Resolver consultas auxiliares
 
-### 3. Data Layer
+### 3. Capa de datos
 
-Responsible for persistence and data integrity.
+Responsable de persistencia e integridad relacional.
 
-Key part:
+Servicio principal:
 
 - `DatabaseService`
 
-Responsibilities:
+Responsabilidades:
 
-- Load seed data from `assets/data/db.json`
-- Save changes to `localStorage`
-- Maintain project-task-member relationships
-- Reset and export data
+- Leer `assets/data/db.json`
+- Guardar el estado en `localStorage`
+- Mantener relaciones entre proyectos, tareas y miembros
+- Reiniciar y exportar datos
 
-## Routing Model
+## Modelo de persistencia
 
-### `/metrics`
+### Estado inicial
 
-Primary landing page and global editing workspace.
-
-### `/projects`
-
-Project-focused management page with detail panel and modal form.
-
-### `/tasks`
-
-Task-focused management page with table, detail panel, and modal form.
-
-### `/team`
-
-Team-focused page with member detail panel and modal form.
-
-## State Management
-
-The app uses Angular signals instead of a dedicated external state library.
-
-Benefits:
-
-- Minimal dependencies
-- Clear computed values
-- Good fit for dashboard interactions
-
-## Persistence Strategy
-
-### Initial State
-
-Seeded from:
+Se carga desde:
 
 ```text
 src/assets/data/db.json
 ```
 
-### Runtime State
+### Estado de trabajo
 
-Stored in browser:
+Se guarda en:
 
 ```text
 localStorage
 ```
 
-### Reset Behavior
+### Comportamiento del reset
 
-The reset action clears the browser store and reloads from the JSON seed.
+El reset elimina el almacenamiento local y vuelve a cargar el seed original.
 
-## Relationship Rules
+## Reglas de integridad
 
-### Project deletion
+### Al borrar un proyecto
 
-- Removes the project
-- Removes linked tasks
-- Removes project references from members
+- Se elimina el proyecto
+- Se eliminan las tareas asociadas
+- Se quita la referencia del proyecto en los miembros
 
-### Task updates
+### Al mover una tarea de proyecto
 
-- Keeps `taskIds` in sync when a task changes project
+- Se actualizan los `taskIds` del proyecto anterior y del nuevo
 
-### Team member updates
+### Al cambiar proyectos de un miembro
 
-- Keeps `teamMemberIds` in sync when linked projects change
+- Se actualizan los `teamMemberIds` de los proyectos relacionados
 
-## UI Interaction Model
+## Modelo de UI
 
-- Tables and cards select records
-- Buttons trigger explicit CRUD actions
-- Forms use modals instead of browser prompts
-- Detail panels support quick context and secondary actions
+- Las tablas y tarjetas permiten seleccionar registros
+- Los botones ejecutan acciones CRUD explicitas
+- Los formularios usan modales, no prompts del navegador
+- Los paneles de detalle permiten revisar y actuar sobre un registro
 
-## Extension Path
+## Camino de evolucion
 
-The cleanest future extension path is:
+La forma mas limpia de evolucionar el sistema es:
 
-1. Keep `ProjectOpsService` as the façade
-2. Replace `DatabaseService` internals with HTTP calls
-3. Keep most feature pages unchanged
+1. Mantener `ProjectOpsService` como fachada
+2. Sustituir `DatabaseService` por llamadas HTTP
+3. Reutilizar la mayor parte de las vistas actuales
 
-This means the app is already positioned for migration from local demo mode to real backend mode.
+Eso permite pasar de demo local a aplicacion conectada a backend sin rehacer toda la UI.

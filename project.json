@@ -1,5 +1,5 @@
 {
-  "project": "P3 ProjectOps Dashboard",
+  "project": "Luxora Ops Dashboard",
   "entities": ["Project", "Task", "TeamMember", "Status"],
   "views": ["ProjectsBoard", "TasksList", "TeamOverview", "MetricsDashboard"],
   "api_endpoints": [

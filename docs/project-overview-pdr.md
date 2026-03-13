@@ -1,124 +1,98 @@
-# Project Overview & Product Requirements
+# Vision General y Requisitos del Producto
 
-**Project Name**: Luxora Ops Dashboard  
-**Type**: Frontend dashboard application  
-**Status**: MVP complete  
-**Last Updated**: 2026-03-13
+**Proyecto**: Luxora Ops Dashboard  
+**Tipo**: Dashboard frontend  
+**Estado**: MVP funcional  
+**Ultima actualizacion**: 2026-03-13
 
-## Summary
+## Resumen
 
-Luxora Ops Dashboard is a modern operations dashboard built with Angular. It provides a polished interface for managing projects, tasks, and team members without depending on a backend service.
+Luxora Ops Dashboard es un panel de operaciones construido con Angular para gestionar proyectos, tareas y miembros del equipo desde una interfaz moderna. El proyecto esta pensado como base reutilizable para demos, portfolio, aprendizaje y futuras integraciones con backend.
 
-The current product goal is to deliver a clean, editable, public-ready dashboard that can be shared as a GitHub project, used in class, or extended by other developers.
+## Objetivos
 
-## Product Goals
+- Ofrecer una experiencia visual moderna y clara
+- Simular una base de datos usando un archivo JSON editable
+- Permitir crear, leer, editar y eliminar registros
+- Facilitar el uso y la instalacion por parte de otras personas
+- Servir como base lista para conectar una API real mas adelante
 
-- Provide a visually modern dashboard experience
-- Simulate a database using an editable JSON file
-- Support create, read, update, and delete flows
-- Keep the project easy to run for other developers
-- Offer a strong base for future backend integration
+## Usuarios objetivo
 
-## Target Users
+- Estudiantes aprendiendo Angular
+- Desarrolladores que quieren una base de dashboard
+- Personas que revisan el proyecto en GitHub
+- Equipos que necesitan una demo local sin backend
 
-- Students learning Angular and CRUD patterns
-- Developers building admin dashboards
-- Recruiters or clients reviewing frontend skills
-- Teams needing a local demo without backend setup
-
-## Core User Stories
+## Historias de usuario principales
 
 ### Dashboard
 
-- As a user, I can see a modern overview of project activity
-- As a user, I can view KPIs and quick summaries of tasks and team workload
+- Como usuario, quiero ver un resumen visual del estado del sistema
+- Como usuario, quiero entender rapidamente la carga del equipo y el avance de tareas
 
-### Projects
+### Proyectos
 
-- As a user, I can create a project
-- As a user, I can edit project details
-- As a user, I can delete a project and its linked tasks
+- Como usuario, quiero crear proyectos
+- Como usuario, quiero editar proyectos
+- Como usuario, quiero eliminar proyectos y su informacion relacionada
 
-### Tasks
+### Tareas
 
-- As a user, I can create tasks linked to projects
-- As a user, I can assign tasks to team members
-- As a user, I can edit task status and priority
-- As a user, I can delete tasks
+- Como usuario, quiero crear tareas vinculadas a un proyecto
+- Como usuario, quiero asignar tareas a un miembro del equipo
+- Como usuario, quiero cambiar estado y prioridad
+- Como usuario, quiero eliminar tareas
 
-### Team
+### Equipo
 
-- As a user, I can create team members
-- As a user, I can link team members to projects
-- As a user, I can edit member details
-- As a user, I can delete team members
+- Como usuario, quiero crear miembros del equipo
+- Como usuario, quiero editar sus datos
+- Como usuario, quiero asociarlos a proyectos
+- Como usuario, quiero eliminarlos
 
-### Data
+### Datos
 
-- As a user, I can start from a seeded dataset
-- As a user, I can reset the app to its original state
-- As a user, I can export the current data as JSON
+- Como usuario, quiero partir de una base inicial
+- Como usuario, quiero reiniciar el estado al JSON original
+- Como usuario, quiero exportar el estado actual
 
-## Functional Scope
+## Alcance actual
 
-### Included
+### Incluido
 
-- Angular standalone component architecture
-- Seed data from `src/assets/data/db.json`
-- Browser persistence with `localStorage`
-- CRUD flows for projects, tasks, and team members
-- Dashboard overview page
-- Secondary route pages for projects, tasks, and team
+- Angular con componentes standalone
+- Seed de datos desde `src/assets/data/db.json`
+- Persistencia en `localStorage`
+- CRUD funcional de proyectos, tareas y equipo
+- Dashboard principal con metricas
+- Rutas secundarias para vistas especificas
 
-### Not Included Yet
+### No incluido todavia
 
-- User authentication
-- Backend API
-- Database writes to real files
-- Role permissions
-- Realtime sync
-- Audit log
+- Backend
+- Escritura real sobre archivos del sistema
+- Autenticacion
+- Permisos por roles
+- Sincronizacion en tiempo real
 
-## Non-Functional Requirements
+## Requisitos no funcionales
 
-- Easy local setup
-- Clear folder structure
-- Readable code for learners
-- Visual consistency across routes
-- Type-safe data handling
+- Instalacion simple
+- Arquitectura entendible
+- Codigo legible para otras personas
+- Consistencia visual entre vistas
+- Seguridad razonable para una demo local
 
-## UX Requirements
+## Criterios de exito
 
-- Modern and soft visual language
-- Strong CTA buttons with consistent accent color
-- Sticky header and dashboard shell
-- Responsive behavior for common laptop and tablet widths
-- Forms must be usable without browser prompts
+- Otra persona puede clonar, instalar y ejecutar sin ayuda
+- Los botones principales no quedan muertos
+- La documentacion explica setup, arquitectura y persistencia
+- El proyecto puede presentarse publicamente en GitHub
 
-## Data Requirements
+## Preguntas abiertas
 
-The application uses:
-
-- `db.json` as the initial source of truth
-- `localStorage` as the mutable runtime store
-
-Relationships:
-
-- A project has many tasks
-- A project has many team members
-- A task belongs to one project
-- A task may belong to one team member
-- A team member may belong to many projects
-
-## Success Criteria
-
-- Another developer can clone, install, and run in minutes
-- CRUD works without hidden dead buttons
-- Documentation explains setup, architecture, and data behavior
-- GitHub visitors understand the project at a glance
-
-## Open Questions
-
-- Should the next version use `json-server` or a custom backend?
-- Should the app support file writes to the seed JSON outside the browser?
-- Should route pages match the visual sophistication of the main dashboard even more closely?
+- ¿La siguiente version debe usar `json-server` o una API propia?
+- ¿Quieres persistencia real fuera del navegador?
+- ¿Quieres convertir las vistas secundarias al mismo nivel visual del dashboard principal?

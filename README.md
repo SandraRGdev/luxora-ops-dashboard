@@ -1,94 +1,98 @@
 # Luxora Ops Dashboard
 
-Modern Angular dashboard with editable JSON-backed data for projects, tasks, and team management.
+Dashboard moderno en Angular con datos JSON editables para gestionar proyectos, tareas y miembros del equipo.
 
-## Overview
+## Descripcion
 
-Luxora Ops Dashboard is a frontend-first operations dashboard inspired by soft glassmorphism layouts, lavender surfaces, and lime accent actions. It is designed as a portfolio-ready admin experience that works without a backend.
+Luxora Ops Dashboard es una aplicacion frontend pensada para demos, clases y portfolios. El proyecto muestra una interfaz administrativa moderna con estetica suave, panel lateral, cabecera fija, metricas y flujos CRUD completos.
 
-The application reads seed data from `src/assets/data/db.json`, loads it into the browser, and persists user changes in `localStorage`. This makes the project ideal for demos, classes, UI prototyping, and CRUD practice.
+No necesita backend para funcionar. La aplicacion toma datos base desde `src/assets/data/db.json`, los carga en el navegador y guarda los cambios en `localStorage`.
 
-## Features
+## Caracteristicas
 
-- Modern dashboard UI with sidebar, sticky header, KPI cards, activity panels, and editable records
-- CRUD for projects, tasks, and team members
-- Seeded JSON dataset that simulates a database
-- Local persistence through `localStorage`
-- Reset to original seed data
-- Export current in-browser data as JSON
-- Responsive layout for desktop and tablet
-- Standalone Angular components with signals-based state
+- Dashboard principal con metricas y panel de trabajo
+- CRUD de proyectos
+- CRUD de tareas
+- CRUD de miembros del equipo
+- Datos semilla en JSON
+- Persistencia local en navegador
+- Reinicio al estado original
+- Exportacion del estado actual a JSON
+- Diseño responsive para escritorio y tablet
 
-## Tech Stack
+## Tecnologias
 
 - Angular 20
 - TypeScript 5
-- Angular signals
+- Angular Signals
 - SCSS
-- JSON seed data in `src/assets/data/db.json`
+- `localStorage`
+- JSON local como fuente inicial
 
-## Getting Started
+## Requisitos
 
-### Requirements
+- Node.js 18 o superior
+- npm 9 o superior
 
-- Node.js 18+
-- npm 9+
-
-### Install
+## Instalacion
 
 ```bash
 npm install
 ```
 
-### Run locally
+## Ejecucion local
 
 ```bash
 npm start
 ```
 
-The app will be available at `http://localhost:4200/`.
+La app estara disponible en:
 
-### Build
+```text
+http://localhost:4200/
+```
+
+## Build de produccion
 
 ```bash
 npm run build
 ```
 
-### Type check
+## Verificacion de tipos
 
 ```bash
 npx tsc -p tsconfig.app.json --noEmit
 ```
 
-## Data Model
+## Como funciona la data
 
-The project ships with a local dataset in:
+El proyecto incluye un archivo de datos base en:
 
 ```text
 src/assets/data/db.json
 ```
 
-This file contains:
+Contiene:
 
 - `projects`
 - `tasks`
 - `teamMembers`
 - `metadata`
 
-Runtime behavior:
+Flujo de datos:
 
-1. The app loads `db.json` on first run.
-2. The content is copied to browser `localStorage`.
-3. All create, edit, and delete operations update `localStorage`.
-4. "Reset" restores the original seed from `db.json`.
-5. "Export JSON" downloads the current in-browser state.
+1. La app carga `db.json` la primera vez.
+2. Copia ese contenido a `localStorage`.
+3. Las operaciones de crear, editar y eliminar actualizan `localStorage`.
+4. El boton de reinicio recupera el contenido original del JSON.
+5. El boton de exportar descarga el estado actual del navegador.
 
-Important:
+Importante:
 
-- Editing records in the UI does not overwrite the physical `db.json` file.
-- If you need real file writes or multi-user persistence, add an API or `json-server`.
+- Editar desde la interfaz no modifica fisicamente `db.json`.
+- Si necesitas persistencia real multiusuario, el siguiente paso es agregar API o `json-server`.
 
-## Project Structure
+## Estructura principal
 
 ```text
 src/
@@ -113,16 +117,16 @@ src/
 └── styles.scss
 ```
 
-## Main Routes
+## Rutas principales
 
-- `/metrics` - Main dashboard and global CRUD workspace
-- `/projects` - Projects board
-- `/tasks` - Tasks management view
-- `/team` - Team overview
+- `/metrics` - dashboard principal y editor global
+- `/projects` - tablero de proyectos
+- `/tasks` - gestion de tareas
+- `/team` - vista de equipo
 
-## Documentation
+## Documentacion
 
-More project documentation is available in:
+Documentacion tecnica incluida:
 
 - `docs/project-overview-pdr.md`
 - `docs/codebase-summary.md`
@@ -131,38 +135,38 @@ More project documentation is available in:
 
 ## Scripts
 
-- `npm start` - Start development server
-- `npm run build` - Production build
-- `npm run watch` - Development build watcher
-- `npm test` - Angular test runner
+- `npm start` - servidor de desarrollo
+- `npm run build` - build de produccion
+- `npm run watch` - build en modo observacion
+- `npm test` - test runner de Angular
 
-## Suggested GitHub Description
-
-```text
-Modern Angular dashboard with editable JSON data, local persistence, and CRUD for projects, tasks, and team members.
-```
-
-## Suggested Topics
+## Descripcion sugerida para GitHub
 
 ```text
-angular dashboard typescript admin-panel crud localstorage json ui ux
+Dashboard moderno en Angular con datos JSON editables, persistencia local y CRUD de proyectos, tareas y equipo.
 ```
 
-## Known Limitations
+## Topics sugeridos
 
-- No real backend yet
-- No authentication layer
-- Data is local to the current browser
-- Multi-user sync is not supported
+```text
+angular dashboard typescript crud localstorage json admin-panel ui ux
+```
 
-## Next Improvements
+## Limitaciones actuales
 
-- Add `json-server` or Express API
-- Add notifications/toasts instead of `confirm`
-- Add tests for CRUD flows
-- Add dark/light theme switch
-- Add charts with real visualization library
+- No hay backend real
+- No hay autenticacion
+- Los datos viven en el navegador actual
+- No existe sincronizacion multiusuario
 
-## License
+## Siguientes mejoras
+
+- Integrar `json-server` o Express
+- Sustituir `confirm` por dialogs o toasts
+- Añadir tests de flujos CRUD
+- Incorporar selector de tema
+- Mejorar las visualizaciones de metricas
+
+## Licencia
 
 MIT
