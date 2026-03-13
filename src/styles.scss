@@ -1,0 +1,95 @@
+/* Global Styles */
+:root {
+  color-scheme: light;
+  --bg-page: #ece9f8;
+  --bg-shell: rgba(167, 157, 213, 0.18);
+  --panel: rgba(255, 255, 255, 0.7);
+  --panel-strong: rgba(255, 255, 255, 0.9);
+  --panel-dark: #5d5485;
+  --stroke: rgba(255, 255, 255, 0.44);
+  --stroke-strong: rgba(99, 91, 145, 0.24);
+  --text-main: #312d4b;
+  --text-soft: #6e6994;
+  --accent: #b7ef5f;
+  --accent-strong: #8dd437;
+  --accent-dark: #263215;
+  --shadow-soft: 0 22px 60px rgba(112, 99, 165, 0.18);
+  --shadow-card: 0 14px 32px rgba(103, 93, 149, 0.12);
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 30%),
+    radial-gradient(circle at top right, rgba(195, 237, 121, 0.28), transparent 24%),
+    linear-gradient(135deg, #f0ecfb 0%, #d7d0f0 48%, #c6c0e8 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(93, 84, 133, 0.28);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(93, 84, 133, 0.42);
+}

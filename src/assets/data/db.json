@@ -1,0 +1,255 @@
+{
+  "projects": [
+    {
+      "id": "proj-1",
+      "name": "E-commerce Platform",
+      "description": "Building a modern e-commerce platform with Angular and Node.js for online retail operations",
+      "status": "active",
+      "startDate": "2024-01-15T00:00:00.000Z",
+      "endDate": "2024-06-30T00:00:00.000Z",
+      "teamMemberIds": ["member-1", "member-2", "member-3"],
+      "taskIds": ["task-1", "task-2", "task-3", "task-4"],
+      "createdAt": "2024-01-10T00:00:00.000Z",
+      "updatedAt": "2024-01-10T00:00:00.000Z"
+    },
+    {
+      "id": "proj-2",
+      "name": "Mobile App Redesign",
+      "description": "Complete UI/UX redesign of the mobile application with focus on user experience",
+      "status": "planning",
+      "startDate": "2024-02-01T00:00:00.000Z",
+      "endDate": null,
+      "teamMemberIds": ["member-2", "member-4"],
+      "taskIds": ["task-5", "task-6"],
+      "createdAt": "2024-01-20T00:00:00.000Z",
+      "updatedAt": "2024-01-20T00:00:00.000Z"
+    },
+    {
+      "id": "proj-3",
+      "name": "API Integration",
+      "description": "Third-party API integrations for payment gateways and analytics platforms",
+      "status": "active",
+      "startDate": "2024-01-01T00:00:00.000Z",
+      "endDate": "2024-03-15T00:00:00.000Z",
+      "teamMemberIds": ["member-1", "member-5"],
+      "taskIds": ["task-7", "task-8", "task-9"],
+      "createdAt": "2023-12-15T00:00:00.000Z",
+      "updatedAt": "2024-01-05T00:00:00.000Z"
+    },
+    {
+      "id": "proj-4",
+      "name": "Legacy Migration",
+      "description": "Migrating legacy monolith system to microservices architecture",
+      "status": "completed",
+      "startDate": "2023-06-01T00:00:00.000Z",
+      "endDate": "2024-01-31T00:00:00.000Z",
+      "teamMemberIds": ["member-3", "member-4", "member-5"],
+      "taskIds": ["task-10", "task-11"],
+      "createdAt": "2023-05-15T00:00:00.000Z",
+      "updatedAt": "2024-01-31T00:00:00.000Z"
+    },
+    {
+      "id": "proj-5",
+      "name": "Security Audit",
+      "description": "Comprehensive security audit and vulnerability assessment with remediation",
+      "status": "on-hold",
+      "startDate": "2024-02-15T00:00:00.000Z",
+      "endDate": null,
+      "teamMemberIds": ["member-1"],
+      "taskIds": [],
+      "createdAt": "2024-02-01T00:00:00.000Z",
+      "updatedAt": "2024-02-10T00:00:00.000Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Setup project structure",
+      "description": "Initialize Angular project with all dependencies and folder structure",
+      "status": "done",
+      "priority": "high",
+      "assigneeId": "member-1",
+      "projectId": "proj-1",
+      "dueDate": "2024-01-20T00:00:00.000Z",
+      "createdAt": "2024-01-10T00:00:00.000Z",
+      "updatedAt": "2024-01-20T00:00:00.000Z"
+    },
+    {
+      "id": "task-2",
+      "title": "Implement authentication",
+      "description": "Add login/logout functionality with JWT tokens and refresh logic",
+      "status": "in-progress",
+      "priority": "high",
+      "assigneeId": "member-2",
+      "projectId": "proj-1",
+      "dueDate": "2024-02-15T00:00:00.000Z",
+      "createdAt": "2024-01-15T00:00:00.000Z",
+      "updatedAt": "2024-01-25T00:00:00.000Z"
+    },
+    {
+      "id": "task-3",
+      "title": "Create product catalog",
+      "description": "Build product listing and detail pages with filtering",
+      "status": "todo",
+      "priority": "medium",
+      "assigneeId": "member-3",
+      "projectId": "proj-1",
+      "dueDate": "2024-03-01T00:00:00.000Z",
+      "createdAt": "2024-01-20T00:00:00.000Z",
+      "updatedAt": "2024-01-20T00:00:00.000Z"
+    },
+    {
+      "id": "task-4",
+      "title": "Shopping cart implementation",
+      "description": "Implement shopping cart with persistence and checkout flow",
+      "status": "todo",
+      "priority": "high",
+      "assigneeId": null,
+      "projectId": "proj-1",
+      "dueDate": "2024-03-15T00:00:00.000Z",
+      "createdAt": "2024-01-25T00:00:00.000Z",
+      "updatedAt": "2024-01-25T00:00:00.000Z"
+    },
+    {
+      "id": "task-5",
+      "title": "Design homepage mockups",
+      "description": "Create Figma designs for the main landing page and navigation",
+      "status": "review",
+      "priority": "medium",
+      "assigneeId": "member-4",
+      "projectId": "proj-2",
+      "dueDate": "2024-02-10T00:00:00.000Z",
+      "createdAt": "2024-01-20T00:00:00.000Z",
+      "updatedAt": "2024-02-05T00:00:00.000Z"
+    },
+    {
+      "id": "task-6",
+      "title": "User research interviews",
+      "description": "Conduct user interviews to gather feedback on current app",
+      "status": "done",
+      "priority": "medium",
+      "assigneeId": "member-2",
+      "projectId": "proj-2",
+      "dueDate": "2024-01-30T00:00:00.000Z",
+      "createdAt": "2024-01-15T00:00:00.000Z",
+      "updatedAt": "2024-01-30T00:00:00.000Z"
+    },
+    {
+      "id": "task-7",
+      "title": "Setup CI/CD pipeline",
+      "description": "Configure GitHub Actions for automated testing and deployments",
+      "status": "in-progress",
+      "priority": "medium",
+      "assigneeId": "member-1",
+      "projectId": "proj-3",
+      "dueDate": "2024-02-28T00:00:00.000Z",
+      "createdAt": "2024-01-25T00:00:00.000Z",
+      "updatedAt": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "id": "task-8",
+      "title": "Payment gateway integration",
+      "description": "Integrate Stripe payment processing API",
+      "status": "todo",
+      "priority": "high",
+      "assigneeId": "member-5",
+      "projectId": "proj-3",
+      "dueDate": "2024-02-20T00:00:00.000Z",
+      "createdAt": "2024-01-28T00:00:00.000Z",
+      "updatedAt": "2024-01-28T00:00:00.000Z"
+    },
+    {
+      "id": "task-9",
+      "title": "Analytics dashboard setup",
+      "description": "Configure Google Analytics and custom event tracking",
+      "status": "todo",
+      "priority": "low",
+      "assigneeId": null,
+      "projectId": "proj-3",
+      "dueDate": null,
+      "createdAt": "2024-02-01T00:00:00.000Z",
+      "updatedAt": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "id": "task-10",
+      "title": "Database migration scripts",
+      "description": "Write migration scripts for legacy database to new schema",
+      "status": "done",
+      "priority": "high",
+      "assigneeId": "member-3",
+      "projectId": "proj-4",
+      "dueDate": "2024-01-15T00:00:00.000Z",
+      "createdAt": "2023-12-01T00:00:00.000Z",
+      "updatedAt": "2024-01-15T00:00:00.000Z"
+    },
+    {
+      "id": "task-11",
+      "title": "API documentation",
+      "description": "Create comprehensive API documentation with Swagger",
+      "status": "done",
+      "priority": "medium",
+      "assigneeId": "member-4",
+      "projectId": "proj-4",
+      "dueDate": "2024-01-20T00:00:00.000Z",
+      "createdAt": "2023-12-15T00:00:00.000Z",
+      "updatedAt": "2024-01-20T00:00:00.000Z"
+    }
+  ],
+  "teamMembers": [
+    {
+      "id": "member-1",
+      "name": "John Doe",
+      "email": "john.doe@company.com",
+      "role": "admin",
+      "avatar": null,
+      "projectIds": ["proj-1", "proj-3", "proj-5"],
+      "createdAt": "2023-06-01T00:00:00.000Z",
+      "updatedAt": "2023-06-01T00:00:00.000Z"
+    },
+    {
+      "id": "member-2",
+      "name": "Jane Smith",
+      "email": "jane.smith@company.com",
+      "role": "developer",
+      "avatar": null,
+      "projectIds": ["proj-1", "proj-2"],
+      "createdAt": "2023-07-15T00:00:00.000Z",
+      "updatedAt": "2023-07-15T00:00:00.000Z"
+    },
+    {
+      "id": "member-3",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@company.com",
+      "role": "designer",
+      "avatar": null,
+      "projectIds": ["proj-1", "proj-4"],
+      "createdAt": "2023-08-01T00:00:00.000Z",
+      "updatedAt": "2023-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "member-4",
+      "name": "Sarah Williams",
+      "email": "sarah.williams@company.com",
+      "role": "manager",
+      "avatar": null,
+      "projectIds": ["proj-2", "proj-4"],
+      "createdAt": "2023-05-15T00:00:00.000Z",
+      "updatedAt": "2023-05-15T00:00:00.000Z"
+    },
+    {
+      "id": "member-5",
+      "name": "Tom Brown",
+      "email": "tom.brown@company.com",
+      "role": "qa",
+      "avatar": null,
+      "projectIds": ["proj-3", "proj-4"],
+      "createdAt": "2023-09-01T00:00:00.000Z",
+      "updatedAt": "2023-09-01T00:00:00.000Z"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-03-13T00:00:00.000Z",
+    "seeded": true
+  }
+}
